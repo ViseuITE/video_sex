@@ -13,6 +13,7 @@ import './charts/ChartjsConfig';
 import Dashboard from './pages/Dashboard';
 import AddPost from './pages/post/AddPost';
 import DefaultLayout from './layouts/DefaultLayout';
+import Home from './pages/Home';
 
 function App() {
 
@@ -26,11 +27,17 @@ function App() {
 
   return (
     <>
-    <DefaultLayout>
+      <DefaultLayout>
+        <Routes>
+          <Route exact path="/dashboard" element={<Dashboard />} />
+          <Route path="/post" element={<AddPost/>} />
+        </Routes>
+      </DefaultLayout>
+
       <Routes>
-        <Route exact path="/dashboard" element={<Dashboard />} />
-        <Route path="/post" element={<AddPost/>} />
-      </Routes></DefaultLayout>
+          <Route exact path="/" element={<Home />} />
+          {/* <Route path="/post" element={<AddPost/>} /> */}
+        </Routes>
     </>
   );
 }
